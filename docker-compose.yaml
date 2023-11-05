@@ -1,0 +1,19 @@
+version: '2'
+
+services:
+  site:
+    image: personal-site:latest
+    ports:
+      - "5000:5000"
+    container_name: jonny
+    volumes:
+      - ~/projects/personal-site:/static
+    networks:
+      - default
+
+networks:
+  default:
+    name: nouveau-net
+    driver: bridge
+volumes:
+  static:
