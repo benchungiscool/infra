@@ -1,0 +1,22 @@
+name: Bring up infrastructure
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+    user:
+      - benchungiscool
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy new config
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.PORT }}
+          script: cd ~/projects/infra && git pull && docker-compose up -d
