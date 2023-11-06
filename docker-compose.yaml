@@ -10,6 +10,14 @@ services:
       - ~/projects/personal-site:/static
     networks:
       - default
+  nginx:
+    image: benginx:latest
+    ports:
+      - "80:80"
+      - "443:443"
+    container_name: benginx
+    networks:
+      - default
 
 networks:
   default:
