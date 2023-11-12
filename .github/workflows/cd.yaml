@@ -7,9 +7,6 @@ on:
   workflow_dispatch:
     user:
       - benchungiscool
-  repository_dispatch:
-    type:
-      - deploy-new-containers
 
 jobs:
   deploy:
