@@ -1,0 +1,30 @@
+name: Deploy docker infrastructure
+
+on:
+  workflow_call:
+    secrets:
+        ssh-host:
+          required: true
+          type: string
+        username:
+          required: true
+          type: string
+        port:
+          required: false
+          default: 22
+        ssh-key:
+          required: true
+          type: string
+
+jobs: 
+  deploy-to-vps:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy new config
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.ssh-host }}
+          username: ${{ secrets.username }}
+          key: ${{ secrets.ssh-key }}
+          port: ${{ secrets.port }}
+          script: cd ~/infra && git pull && docker-compose up -d
