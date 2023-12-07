@@ -10,6 +10,7 @@ services:
       - ~/projects/personal-site:/static
     networks:
       - default
+    restart: on-failure
   nginx:
     image: benginx:latest
     ports:
@@ -18,6 +19,7 @@ services:
     container_name: benginx
     networks:
       - default
+    restart: always
 
 networks:
   default:
