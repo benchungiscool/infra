@@ -4,31 +4,35 @@ services:
   site:
     image: personal-site:latest
     ports:
-      - "5000:5000"
+      - "5001:5001"
     container_name: jonny
     volumes:
       - ~/projects/personal-site:/static
-    command: gunicorn --bind 0.0.0.0:5000 -w 8 src.main:app
+    command: gunicorn --bind 0.0.0.0:5001 -w 8 src.main:app
     networks:
       - default
     restart: on-failure
-  nginx:
-    image: benginx:latest
+  caddy:
+    image: caddy:latest
+    container_name: caddy
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
     ports:
       - "80:80"
       - "443:443"
-    container_name: benginx
     networks:
       - default
-    restart: always
-  registry:
-    image: registry:latest
+    depends_on:
+      - site
+  image-registry:
+    image: registry:2
+    container_name: registry
     ports:
-      - "3333:3333"
-    container_name: gallery
-    networks:
-      - default
-    restart: always
+      - "5000:5000"
+    volumes:
+      - registry:/var/lib/registry
+
+    restart: unless-stopped
 
 networks:
   default:
@@ -36,3 +40,4 @@ networks:
     driver: bridge
 volumes:
   static:
+  registry:
