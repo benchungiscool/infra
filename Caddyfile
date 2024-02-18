@@ -1,3 +1,16 @@
+{
+    pki {
+        ca benchung {
+            name "Bentificates Chungthority"
+        }
+    }
+}
+
+
 benchung.dev {
     reverse_proxy jonny:5001
+
+    acme_server {
+        ca benchung
+    }
 }
