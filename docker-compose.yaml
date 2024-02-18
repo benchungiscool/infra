@@ -12,6 +12,19 @@ services:
     networks:
       - default
     restart: on-failure
+
+  nottfound:
+    image: nottfound:latest
+    ports:
+      - "5002:5002"
+    container_name: nottfound
+    volumes:
+      - ~/projects/nottfound:/static
+    command: gunicorn --bind 0.0.0.0:5002 -w 4 src.main:app
+    networks:
+      - default
+    restart: on-failure
+
   caddy:
     image: caddy:latest
     container_name: caddy

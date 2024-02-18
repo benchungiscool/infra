@@ -14,3 +14,11 @@ benchung.dev {
         ca benchung
     }
 }
+
+nottfound.benchung.dev {
+    reverse_proxy nottfound:5002
+
+    acme_server {
+        ca benchung
+    }
+}
