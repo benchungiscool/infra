@@ -1,7 +1,3 @@
 benchung.dev {
     reverse_proxy jonny:5001
 }
-
-registry.benchung.dev {
-    reverse_proxy registry:5000
-}
