@@ -8,10 +8,6 @@ nottfound.benchung.dev {
 
 nottfound.benchung.dev {
     reverse_proxy nottfound:5002
-
-    acme_server {
-        ca benchung
-    }
 }
 
 mail.benchung.dev {
