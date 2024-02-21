@@ -30,7 +30,7 @@ services:
     container_name: caddy
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile
-      - certs_volume/mailserver:/data/caddy/certificates/acme-v02.api.letsencrypt.org-directory/mail.benchung.dev/
+      - mail_certs:/data/caddy/certificates/acme-v02.api.letsencrypt.org-directory/mail.benchung.dev/
     ports:
       - "80:80"
       - "443:443"
@@ -54,7 +54,7 @@ services:
       - ./docker-data/dms/mail-logs/:/var/log/mail/
       - ./docker-data/dms/config/:/tmp/docker-mailserver/
       - /etc/localtime:/etc/localtime:ro
-      - certs_volume/mailserver:/etc/letsencrypt/live/mail.benchung.dev/
+      - mail_certs:/etc/letsencrypt/live/mail.benchung.dev/:ro
     environment:
       - ENABLE_FAIL2BAN=1
       # Using letsencrypt for SSL/TLS certificates:
@@ -76,7 +76,7 @@ networks:
 volumes:
   static:
   registry:
-  certs_volume:
+  mail_certs:
     driver_opts:
       type: none
-      device: ~/.certs
+      device: ~/.certs/mailserver
