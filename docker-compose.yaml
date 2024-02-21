@@ -79,4 +79,4 @@ volumes:
   mail_certs:
     driver_opts:
       type: none
-      device: ~/.certs/mailserver
+      device: ~/.certs/mailserver/
