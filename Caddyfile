@@ -6,9 +6,5 @@ nottfound.benchung.dev {
     reverse_proxy nottfound:5002
 }
 
-nottfound.benchung.dev {
-    reverse_proxy nottfound:5002
-}
-
 mail.benchung.dev {
 }
