@@ -1,18 +1,9 @@
-{
-    pki {
-        ca benchung {
-            name "Bentificates Chungthority"
-        }
-    }
-}
-
-
 benchung.dev {
     reverse_proxy jonny:5001
+}
 
-    acme_server {
-        ca benchung
-    }
+nottfound.benchung.dev {
+    reverse_proxy nottfound:5002
 }
 
 nottfound.benchung.dev {
@@ -21,4 +12,7 @@ nottfound.benchung.dev {
     acme_server {
         ca benchung
     }
+}
+
+mail.benchung.dev {
 }
