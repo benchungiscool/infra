@@ -62,7 +62,7 @@ services:
       - SSL_KEY_PATH=/tmp/dms/custom-certs/mail.benchung.dev.key
       # Allow sending emails from other docker containers:
       # Beware creating an Open Relay: https://docker-mailserver.github.io/docker-mailserver/latest/config/environment/#permit_docker
-      - PERMIT_DOCKER=network
+      - PERMIT_DOCKER=container
       # You may want to enable this: https://docker-mailserver.github.io/docker-mailserver/latest/config/environment/#spoof_protection
       # See step 6 below, which demonstrates setup with enabled/disabled SPOOF_PROTECTION:
       - SPOOF_PROTECTION=1
