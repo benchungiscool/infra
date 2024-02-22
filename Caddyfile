@@ -1,3 +1,7 @@
+{
+  key_type rsa4096
+}
+
 benchung.dev {
     reverse_proxy jonny:5001
 }
@@ -5,4 +9,9 @@ benchung.dev {
 nottfound.benchung.dev {
     reverse_proxy nottfound:5002
 }
+
+mail.benchung.dev {
+    respond "401"
+}
+
 
