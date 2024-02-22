@@ -48,6 +48,7 @@ services:
       - "25:25"
       - "587:587"
       - "465:465"
+      - "995:995"  # POP3 (with TLS)
     volumes:
       - ~/.mailserver/mail-data/:/var/mail/
       - ~/.mailserver/mail-state/:/var/mail-state/
@@ -57,14 +58,13 @@ services:
       - ~/.certs/mailserver:/tmp/dms/custom-certs:ro
     environment:
       - ENABLE_FAIL2BAN=1
+      - ENABLE_POP3=1
+
       - SSL_TYPE=manual
       - SSL_CERT_PATH=/tmp/dms/custom-certs/mail.benchung.dev.crt
       - SSL_KEY_PATH=/tmp/dms/custom-certs/mail.benchung.dev.key
-      # Allow sending emails from other docker containers:
-      # Beware creating an Open Relay: https://docker-mailserver.github.io/docker-mailserver/latest/config/environment/#permit_docker
+
       - PERMIT_DOCKER=container
-      # You may want to enable this: https://docker-mailserver.github.io/docker-mailserver/latest/config/environment/#spoof_protection
-      # See step 6 below, which demonstrates setup with enabled/disabled SPOOF_PROTECTION:
       - SPOOF_PROTECTION=1
       - POSTMASTER_ADDRESS=ben@benchung.dev
       - MARK_SPAM_AS_READ=1
