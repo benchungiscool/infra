@@ -67,7 +67,12 @@ services:
       - PERMIT_DOCKER=container
       - SPOOF_PROTECTION=1
       - POSTMASTER_ADDRESS=ben@benchung.dev
-      - MARK_SPAM_AS_READ=1
+      - MARK_SPAM_AS_READ=0
+
+      - ENABLE_OPENDMARC=0
+      - ENABLE_POLICYD_SPF=0
+      - ENABLE_AMAVIS=0
+      - ENABLE_SPAMASSASSIN=01
     cap_add:
       - NET_ADMIN # For Fail2Ban to work
     depends_on:
