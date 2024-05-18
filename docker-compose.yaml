@@ -39,6 +39,13 @@ services:
     depends_on:
       - site
 
+  db:
+    image: postgres
+    restart: always
+    shm_size: 512mb
+    environment:
+      POSTGRES_PASSWORD_FILE: /run/secrets/postgres
+
 networks:
   default:
     name: nouveau-net
