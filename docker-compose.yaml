@@ -43,6 +43,8 @@ services:
     image: postgres
     restart: always
     shm_size: 512mb
+    volumes:
+      - /run/secrets/postgres:/run/secrets/postgres
     environment:
       POSTGRES_PASSWORD_FILE: /run/secrets/postgres
 
