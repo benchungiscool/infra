@@ -14,4 +14,6 @@ mail.benchung.dev {
     respond "401"
 }
 
-
+pg1.benchung.dev {
+    reverse_proxy postgres:5432
+}
