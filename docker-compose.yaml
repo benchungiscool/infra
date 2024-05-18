@@ -52,6 +52,8 @@ services:
       - ~/.data/postgres:/var/lib/postgresql/data
     ports:
       - "5432:5432"
+    secrets:
+      - postgres
 
 networks:
   default:
@@ -60,3 +62,7 @@ networks:
 volumes:
   static:
   registry:
+
+secrets:
+   postgres:
+     file: ~/.data/secrets/postgres
