@@ -55,6 +55,13 @@ services:
     secrets:
       - postgres
 
+  feud:
+    image: ghcr.io/joshzcold/cold-family-feud:1.5.4
+    container_nam: feud
+    restart: always
+    ports:
+      - "3000:3000"
+
 networks:
   default:
     name: nouveau-net
