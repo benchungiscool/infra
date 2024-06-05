@@ -57,7 +57,7 @@ services:
 
   feud:
     image: ghcr.io/joshzcold/cold-family-feud:1.5.4
-    container_nam: feud
+    container_name: feud
     restart: always
     ports:
       - "3000:3000"
