@@ -36,8 +36,6 @@ services:
       - "443:443"
     networks:
       - default
-    depends_on:
-      - site
 
   db:
     image: postgres
@@ -55,12 +53,6 @@ services:
     secrets:
       - postgres
 
-  feud:
-    image: ghcr.io/joshzcold/cold-family-feud:1.5.4
-    container_name: feud
-    restart: always
-    ports:
-      - "3000:3000"
 
 networks:
   default:

@@ -18,7 +18,6 @@ pg1.benchung.dev {
     reverse_proxy postgres:5432
 }
 
-feud.benchung.dev {
+dual.benchung.dev {
     reverse_proxy feud:3000
 }
-
