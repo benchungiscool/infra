@@ -10,10 +10,6 @@ nottfound.benchung.dev {
     reverse_proxy nottfound:5002
 }
 
-mail.benchung.dev {
-    respond "401"
-}
-
 pg1.benchung.dev {
     reverse_proxy postgres:5432
 }

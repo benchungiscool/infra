@@ -27,4 +27,8 @@ jobs:
           username: ${{ secrets.username }}
           key: ${{ secrets.ssh-key }}
           port: ${{ secrets.port }}
-          script: cd ~/infra && git pull && docker-compose up -d
+          script: |
+            cd ~/infra &&
+            git pull &&
+            terraform plan &&
+            docker-compose up -d --remove-orphans

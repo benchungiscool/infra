@@ -1,9 +1,6 @@
-name: Bring up infrastructure
+name: Terraform Apply
 
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch:
     user:
       - benchungiscool
@@ -21,8 +18,4 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             cd ~/infra &&
-            git pull &&
-            terraform plan &&
-            docker-compose down &&
-            docker-compose up -d --remove-orphans &&
-            docker system prune -f
+            terraform apply
