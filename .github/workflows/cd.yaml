@@ -22,7 +22,8 @@ jobs:
           script: |
             cd ~/infra &&
             git pull &&
-            terraform plan &&
+            terraform init -upgrade &&
+            terraform apply &&
             docker-compose down &&
             docker-compose up -d --remove-orphans &&
             docker system prune -f
