@@ -12,7 +12,3 @@ module "dns" {
   api_key            = var.cloudflare_key
 }
 
-import {
-  to = module.dns.cloudflare_record.base
-  id = "02b627e256fd283baf39d8ca7d80e3a3/aac899d445b66a41a38ecd03946d5d89"
-}

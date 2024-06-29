@@ -5,3 +5,4 @@ tmp/
 *.tfvars
 *.lock.hcl
 .terraform
+*.tfstate

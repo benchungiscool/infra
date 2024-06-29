@@ -23,7 +23,7 @@ jobs:
             cd ~/infra &&
             git pull &&
             terraform init -upgrade &&
-            terraform apply &&
+            terraform apply --auto-approve &&
             docker-compose down &&
             docker-compose up -d --remove-orphans &&
             docker system prune -f
